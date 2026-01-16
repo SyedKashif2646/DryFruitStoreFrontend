@@ -1,0 +1,8 @@
+.text{
+    display: flex;
+    justify-content: center;
+    color: brown;
+    font-size: larger;
+    font-weight: bolder;
+    
+}

@@ -1,0 +1,86 @@
+<div class="dashboard-container">
+  <!-- Top Header with Add Product Button -->
+  <div class="dashboard-header">
+    <h2>Product Dashboard</h2>
+    <div class="header-actions">
+      <!-- Admin Only - Add Product Button -->
+      <button 
+        *ngIf="isAdmin" 
+        (click)="toggleForm()" 
+        class="btn-add-toggle"
+        [class.active]="showProductForm"
+      >
+        {{ showProductForm ? 'Cancel' : 'Add Product' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- ADMIN ONLY - Product Form (Hidden by default) -->
+  <div *ngIf="isAdmin && showProductForm" class="product-form">
+    <h3>{{ isEditMode ? 'Edit Product' : 'Add New Product' }}</h3>
+
+    <input placeholder="Product Name" [(ngModel)]="product.name" />
+    <input placeholder="Description" [(ngModel)]="product.description" />
+    <div class="input-row">
+      <input type="number" placeholder="Price ($)" [(ngModel)]="product.price" />
+      <input type="number" placeholder="Quantity" [(ngModel)]="product.quantity" />
+    </div>
+    
+    <input 
+      type="file" 
+      (change)="onImageSelect($event)" 
+      accept="image/*" 
+      [required]="!isEditMode"
+    />
+
+    
+    
+    <!-- Show current image in edit mode -->
+    <div *ngIf="isEditMode && product.imagePath" class="current-image">
+      <p>Current Image:</p>
+      <img [src]="getImageUrl(product.imagePath)" alt="Current Product Image">
+      <small>Leave empty to keep current image</small>
+    </div>
+
+    <button 
+      (click)="createProduct()" 
+      [disabled]="!product.name || !product.price || (!isEditMode && !selectedImage)"
+    >
+      {{ isEditMode ? 'Update Product' : 'Add Product' }}
+    </button>
+  </div>
+
+  <!-- Products Section -->
+  <div class="product-list">
+    <h3>Available Products</h3>
+    
+    <!-- Loading State -->
+    <div *ngIf="products.length === 0" class="empty-state">
+      <div class="empty-state-icon">📦</div>
+      <h4>No products available</h4>
+      <p>Add some products to get started</p>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="products-grid">
+      <div *ngFor="let p of products" class="product-card">
+       <img [src]="getImageUrl(p.imagePath)" alt="Product Image">
+        <h4>{{ p.name }}</h4>
+        <p>{{ p.description }}</p>
+        <p class="price-tag">{{ p.price }}</p>
+        <div class="quantity-tag">Stock: {{ p.quantity }}</div>     
+        <!-- Admin Actions -->
+        <div *ngIf="isAdmin" class="product-actions">
+          <button class="btn-edit" (click)="editProduct(p)">Edit</button>
+          <button class="btn-delete" (click)="deleteProduct(p.id)">Delete</button>
+        </div>
+
+         <div *ngIf="!isAdmin && isLoggedIn()" class="add-to-cart">
+      <button class="btn-add-cart" (click)="addToCart(p.id)">
+        🛒 Add to Cart
+      </button>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>

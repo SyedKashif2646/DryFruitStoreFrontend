@@ -1,0 +1,17 @@
+<div class="login-box">
+  <h2>Login</h2>
+
+  <input
+    type="email"
+    placeholder="Email"
+    [(ngModel)]="loginData.email"
+  />
+
+  <input
+    type="password"
+    placeholder="Password"
+    [(ngModel)]="loginData.password"
+  />
+
+  <button (click)="onLogin()">Login</button>
+</div>

@@ -1,0 +1,81 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box; /* Zaroori: Padding ko width ke andar rakhta hai */
+  height: 60px;
+  background-color: #333;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px; /* Padding thodi badha di balance ke liye */
+  z-index: 1000;
+}
+.logo{
+  color: rgb(243, 243, 21);
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+  align-items: center; /* Buttons aur links ko line mein rakhne ke liye */
+}
+
+/* This is wrong - remove it */
+/* .nav-links li a { justify-content: space-between; } */
+
+
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.nav-links li a:hover {
+  background-color: rgba(248, 248, 248, 0.1);
+}
+.logout-btn {
+  background: #ff4d4d; /* Red background taaki button dikhe */
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 8px 15px;
+  border-radius: 4px;
+  white-space: nowrap; /* Button text ko wrap hone se rokta hai */
+  transition: background 0.3s;
+}
+
+.logout-btn:hover {
+  background: #cc0000;
+}
+/* Cart Link in Navbar */
+.nav-links li a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cart-count {
+  background: #ef4444;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+}

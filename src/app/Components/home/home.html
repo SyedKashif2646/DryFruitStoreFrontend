@@ -1,0 +1,96 @@
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Welcome to <span class="highlight">DryFruit Store</span>!</h1>
+      <p class="hero-subtitle">Fresh, Healthy & Premium Quality Dry Fruits Delivered to Your Doorstep</p>
+      <button class="btn-shop" (click)="goToDashboard()">View All Products</button>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <section class="featured-products">
+    <div class="section-header">
+      <h2>Featured Products</h2>
+      <p>Discover our premium collection of dry fruits</p>
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-state">
+      <div class="loading-spinner"></div>
+      <p>Loading products...</p>
+    </div>
+
+    <!-- Products Grid -->
+    <div *ngIf="!isLoading && products.length > 0" class="products-grid">
+      <div *ngFor="let product of products.slice(0, 6)" class="product-card">
+        <div class="product-image">
+          <img [src]="getImageUrl(product.imagePath)" [alt]="product.name" />
+          <div *ngIf="product.quantity < 10" class="stock-badge low-stock">Low Stock</div>
+        </div>
+        <div class="product-info">
+          <h3>{{ product.name }}</h3>
+          <p class="product-description">{{ product.description | slice:0:80 }}...</p>
+          <div class="product-meta">
+            <span class="price">{{ product.price }}</span>
+            <span class="quantity">Stock: {{ product.quantity }}</span>
+          </div>
+
+                <div *ngIf="isLoggedIn()" class="add-to-cart">
+        <button class="btn-add-cart" (click)="addToCart(product.id)">
+          🛒 Add to Cart
+        </button>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!isLoading && products.length === 0" class="empty-state">
+      <div class="empty-icon">📦</div>
+      <h3>No Products Available</h3>
+      <p>Check back soon for our amazing collection!</p>
+    </div>
+
+    <!-- View All Button -->
+    <div *ngIf="!isLoading && products.length > 0" class="view-all">
+      <button class="btn-view-all" (click)="goToDashboard()">
+        View All Products ({{ products.length }})
+      </button>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <div class="section-header">
+      <h2>Why Choose Us?</h2>
+      <p>We deliver the best quality dry fruits</p>
+    </div>
+    
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🚚</div>
+        <h3>Free Delivery</h3>
+        <p>Free delivery on orders above 500</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">💯</div>
+        <h3>100% Natural</h3>
+        <p>No preservatives or additives</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">⭐</div>
+        <h3>Premium Quality</h3>
+        <p>Handpicked and carefully selected</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3>Easy Returns</h3>
+        <p>7-day return policy</p>
+      </div>
+    </div>
+  </section>
+</div>
