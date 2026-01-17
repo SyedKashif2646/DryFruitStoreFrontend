@@ -8,6 +8,8 @@ import { DashboardComponent } from './Components/dashboard/dashboard';
 import { HomeComponent } from './Components/home/home';
 import { CartComponent } from './Components/cart/cart';
 import { CheckoutComponent } from './Components/checkout/checkout';
+import { AuthGuard } from './guards/auth-guard';
+
 
 export const routes: Routes = [
 
@@ -18,12 +20,10 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     {path:'about', component:About},
     {path:'policy', component:PolicyComponent},
-    {path:'dashboard',component:DashboardComponent},
-    { path: 'cart', component: CartComponent },
-    { path: 'checkout', component: CheckoutComponent },
-
-
-
+  // 🔒 Protected Routes
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'cart', component: CartComponent, canActivate: [AuthGuard] },
+  { path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard] },
 
   
 ];
