@@ -50,4 +50,16 @@ export class Navbar {
     this.authService.logout();
     this.router.navigate(['/home']);
   }
+
+
+  menuOpen = false;
+
+toggleMenu() {
+  this.menuOpen = !this.menuOpen;
+}
+
+closeMenu() {
+  this.menuOpen = false;
+}
+
 }

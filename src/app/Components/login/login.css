@@ -59,3 +59,58 @@
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
 }
+
+
+/* ---------- LOGIN & REGISTER RESPONSIVE ---------- */
+@media (max-width: 768px) {
+  .login-box,
+  .register-container {
+    max-width: 90%;
+    margin-top: 20%;
+    padding: 30px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-box,
+  .register-container {
+    max-width: 95%;
+    margin-top: 25%;
+    padding: 25px 20px;
+  }
+
+  .login-box h2,
+  .register-container h2 {
+    font-size: 22px;
+  }
+
+  .login-box input,
+  .register-container input {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .login-box button,
+  .register-container button {
+    padding: 14px;
+    font-size: 15px;
+  }
+
+ .register-link {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.register-link a {
+  color: #a78bfa;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.register-link a:hover {
+  color: #8b5cf6;
+  text-decoration: underline;
+}
+
+  
+}

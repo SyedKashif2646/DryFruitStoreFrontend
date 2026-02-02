@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../Services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,7 @@ export class RegisterComponent {
     password: ''
   };
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router:Router) {}
 
   onRegister() {
     this.authService.register(this.registerData).subscribe({
@@ -30,4 +31,8 @@ export class RegisterComponent {
       }
     });
   }
+
+  goToLogin() {
+  this.router.navigate(['/login']);
+}
 }

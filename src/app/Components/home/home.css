@@ -425,3 +425,19 @@ body{
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
 }
+
+/* ---------- HOME EXTRA MOBILE SAFETY ---------- */
+@media (max-width: 360px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .btn-shop {
+    width: 100%;
+    padding: 12px 20px;
+  }
+}

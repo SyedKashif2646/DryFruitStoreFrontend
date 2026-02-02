@@ -550,3 +550,28 @@ hr.visible {
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
 }
+
+/* Margin top for Product Dashboard heading */
+.dashboard-header h2 {
+  margin-top: 20px;
+}
+
+/* Margin top for Add Product button */
+.btn-add-toggle {
+  margin-top: 20px;
+}
+
+/* ---------- DASHBOARD MOBILE IMPROVEMENTS ---------- */
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 20px 10px;
+  }
+
+  .product-form {
+    padding: 20px 15px;
+  }
+
+  .product-card img {
+    height: 160px;
+  }
+}

@@ -317,3 +317,14 @@
     padding-left: 20px;
   }
 }
+
+/* ---------- POLICY SMALL SCREENS ---------- */
+@media (max-width: 360px) {
+  .policy-title {
+    font-size: 1.6rem;
+  }
+
+  .policy-card h2 {
+    font-size: 1.3rem;
+  }
+}

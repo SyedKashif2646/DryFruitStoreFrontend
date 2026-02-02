@@ -73,6 +73,7 @@
 .register-link a {
   color: #a78bfa;
   text-decoration: none;
+  cursor: pointer;
   transition: color 0.2s;
 }
 
